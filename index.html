@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="src/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body class="flex items-center justify-center h-screen relative">
+  
+
+    <main class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-6">To-Do List</h1>
+
+        <input type="file" id="uploadBtn" accept=".json" class="mb-4">
+
+        <div class="mb-4 flex justify-between items-center">
+            <label for="filter" class="block text-sm font-medium text-gray-700">Filter:</label>
+            <select id="filter" aria-label="Filter tasks" class="mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <option value="All">All</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+            </select>
+        </div>
+
+        <ul id="taskList" class="list-disc pl-5 space-y-2 mb-4">
+            <!-- Task items will be appended here -->
+        </ul>
+
+        <button id="openModalBtn"
+            class="bg-blue-600 text-white rounded-lg py-2 px-4 hover:bg-blue-700 focus:outline-none transition duration-200 w-full mb-4 flex items-center justify-center">
+            <i class="bx bx-plus"></i> <span class="ml-2">Add Task</span>
+        </button>
+        <button id="downloadBtn"
+            class="bg-green-600 text-white rounded-lg py-2 px-4 hover:bg-green-700 focus:outline-none transition duration-200 w-50 mb-2 flex items-center justify-center">
+            <i class="bx bx-download"></i> <span class="ml-2">Download Tasks</span>
+        </button>
+    </main>
+
+    <div id="notification" class="notification" role="alert"></div>
+
+    <div id="taskModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+        <div class="modal-content">
+            <span id="closeModal" class="float-right cursor-pointer text-gray-500 hover:text-gray-800" aria-label="Close modal">&times;</span>
+            <h2 id="modalTitle" class="text-2xl font-semibold mb-4">Add New Task</h2>
+
+            <input type="text" id="taskInput" placeholder="Task Name" aria-label="Task name"
+                class="border border-gray-300 rounded-md w-full py-2 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            
+            <div class="mb-4">
+                <label for="priority" class="block text-sm font-medium text-gray-700">Priority:</label>
+                <select id="priority" aria-label="Task priority" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="dueDate" class="block text-sm font-medium text-gray-700">Due Date:</label>
+                <input type="date" id="dueDate" aria-label="Due date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="mb-4">
+                <label for="category" class="block text-sm font-medium text-gray-700">Category:</label>
+                <select id="category" aria-label="Task category" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <button id="addTaskBtn" class="bg-blue-600 text-white rounded-lg py-2 px-4 hover:bg-blue-700 focus:outline-none transition duration-200 w-full">
+                Add Task
+            </button>
+        </div>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
